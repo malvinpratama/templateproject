@@ -9,7 +9,7 @@ class CounterBloc extends Cubit<CounterState> {
     emit(state.copyWith(counterValue: newValue));
   }
 
-  void decrement() {
+void decrement() {
     final int newValue = state.counterValue - 1;
     if (newValue >= 0) {
       emit(state.copyWith(counterValue: newValue));

@@ -1,8 +1,9 @@
 import 'dart:convert';
-
+import 'package:injectable/injectable.dart';
 import 'package:flutter/services.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 
+@lazySingleton
 class AppService {
   static final _instance = AppService._internal();
   factory AppService() => _instance;

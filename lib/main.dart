@@ -1,12 +1,17 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:templateproject/src/configs/app_locale.dart';
-import 'package:templateproject/src/modules/counter/views/counter_page.dart';
+import 'package:url_strategy/url_strategy.dart';
+import 'src/configs/app_locale.dart';
+import 'src/configs/app_routes.dart';
+import 'src/modules/app/blocs/app_bloc.dart';
+import 'src/modules/app/blocs/app_state.dart';
+import 'src/modules/shared/widget/custom_bloc_provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
+  setPathUrlStrategy();
   runApp(EasyLocalization(
       path: AppLocale.path,
       supportedLocales: AppLocale.supportedLocaleList,
@@ -22,9 +27,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-        designSize: const Size(375, 812),
-        builder: (context, child) {
-          return MaterialApp(
+      designSize: const Size(375, 812),
+      builder: (context, child) {
+        return CustomBlocProvider<AppBloc, AppState>(
+          lazy: false,
+          create: (context) => AppBloc(),
+          listener: (context, state) {},
+          builder: (context, state) {
+            return MaterialApp.router(
               title: 'Flutter Demo',
               theme: ThemeData(
                 // This is the theme of your application.
@@ -38,7 +48,14 @@ class MyApp extends StatelessWidget {
                 // is not restarted.
                 primarySwatch: Colors.blue,
               ),
-              home: const CounterPage());
-        });
+              routeInformationProvider:
+                  AppRoutes.router.routeInformationProvider,
+              routeInformationParser: AppRoutes.router.routeInformationParser,
+              routerDelegate: AppRoutes.router.routerDelegate,
+            );
+          },
+        );
+      },
+    );
   }
 }
