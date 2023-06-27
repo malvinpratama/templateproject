@@ -2,18 +2,20 @@ import 'dart:convert';
 import 'package:injectable/injectable.dart';
 import 'package:flutter/services.dart';
 import 'package:package_info_plus/package_info_plus.dart';
+import 'package:templateproject/src/modules/shared/services/app_service.dart';
 
-@lazySingleton
-class AppService {
-  static final _instance = AppService._internal();
-  factory AppService() => _instance;
-  AppService._internal() {
+@LazySingleton(as: AppService)
+class AppServiceImpl extends AppService {
+  static final _instance = AppServiceImpl._internal();
+  factory AppServiceImpl() => _instance;
+  AppServiceImpl._internal() {
     initialize();
   }
 
   static Map<String, dynamic>? _config;
   static bool testingMode = false;
 
+  @override
   Future<void> initialize() async {
     testingMode =
         const bool.fromEnvironment('testing_mode', defaultValue: false);
@@ -31,7 +33,8 @@ class AppService {
     _config = json.decode(configString) as Map<String, dynamic>;
   }
 
-  String getApiInternalUrl() {
+  @override
+  Future<String> getApiInternalUrl() async {
     return _config?['api_internal_url'] as String;
   }
 }
