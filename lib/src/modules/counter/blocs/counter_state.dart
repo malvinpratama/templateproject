@@ -1,4 +1,4 @@
-import 'package:equatable/equatable.dart';
+part of 'counter_bloc.dart';
 
 class CounterState extends Equatable {
   final String title;
@@ -14,8 +14,8 @@ class CounterState extends Equatable {
     int? counterValue,
   }) {
     return CounterState(
-      title: title ?? this.title,
-      counterValue: counterValue ?? this.counterValue);
+        title: title ?? this.title,
+        counterValue: counterValue ?? this.counterValue);
   }
 
   @override

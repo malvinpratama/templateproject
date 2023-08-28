@@ -1,8 +1,6 @@
 import 'dart:convert';
-import 'package:injectable/injectable.dart';
-import 'package:flutter/services.dart';
 import 'package:package_info_plus/package_info_plus.dart';
-import 'package:templateproject/src/modules/shared/services/app_service.dart';
+import 'package:templateproject/src/utils/services.dart';
 
 @LazySingleton(as: AppService)
 class AppServiceImpl extends AppService {

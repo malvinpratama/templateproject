@@ -1,5 +1,5 @@
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'app_state.dart';
+import 'package:templateproject/src/utils/blocs.dart';
+part 'app_state.dart';
 
 class AppBloc extends Cubit<AppState> {
   AppBloc() : super(const AppState());

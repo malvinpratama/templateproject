@@ -1,15 +1,8 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:go_router/go_router.dart';
-import 'package:templateproject/src/modules/login/blocs/login_state.dart';
-import 'package:templateproject/src/modules/login/views/login_page.dart';
+import 'package:templateproject/src/utils/app_text_styles.dart';
+import 'package:templateproject/src/utils/blocs.dart';
+import 'package:templateproject/src/utils/pages.dart';
 
-import '../../../utils/app_text_styles.dart';
-import '../../app/blocs/app_bloc.dart';
-import '../../login/blocs/login_bloc.dart';
-import '../blocs/counter_bloc.dart';
-import '../blocs/counter_state.dart';
 
 class CounterPage extends StatelessWidget {
   static const String route = '/counter-page';

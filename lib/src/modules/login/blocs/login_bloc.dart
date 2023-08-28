@@ -1,5 +1,5 @@
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'login_state.dart';
+import 'package:templateproject/src/utils/blocs.dart';
+part 'login_state.dart';
 
 class LoginBloc extends Cubit<LoginState> {
   LoginBloc() : super(const LoginState());

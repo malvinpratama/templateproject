@@ -1,12 +1,8 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
-import '../../../utils/app_text_styles.dart';
-import '../../app/blocs/app_bloc.dart';
-import '../../counter/views/counter_page.dart';
-import '../../shared/widget/custom_bloc_provider.dart';
-import '../blocs/login_bloc.dart';
-import '../blocs/login_state.dart';
+
+import 'package:templateproject/src/modules/shared/widget/custom_bloc_provider.dart';
+import 'package:templateproject/src/utils/app_text_styles.dart';
+import 'package:templateproject/src/utils/blocs.dart';
+import 'package:templateproject/src/utils/pages.dart';
 
 class LoginPage extends StatelessWidget {
   static const String route = '/login-page';

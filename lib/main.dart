@@ -1,16 +1,17 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:templateproject/src/configs/app_dependencies.dart';
+import 'package:templateproject/src/utils/blocs.dart';
 import 'package:url_strategy/url_strategy.dart';
 import 'src/configs/app_locale.dart';
 import 'src/configs/app_routes.dart';
-import 'src/modules/app/blocs/app_bloc.dart';
-import 'src/modules/app/blocs/app_state.dart';
 import 'src/modules/shared/widget/custom_bloc_provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
+  configureDependencies();
   setPathUrlStrategy();
   runApp(EasyLocalization(
       path: AppLocale.path,

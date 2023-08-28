@@ -1,9 +1,5 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
-import '../modules/app/blocs/app_bloc.dart';
-import '../modules/counter/views/counter_page.dart';
-import '../modules/login/views/login_page.dart';
+import 'package:templateproject/src/utils/blocs.dart';
+import 'package:templateproject/src/utils/pages.dart';
 
 class AppRoutes {
   static final GoRouter _router = GoRouter(
